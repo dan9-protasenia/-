@@ -1,7 +1,7 @@
 #include <stdio.h>               // Ввожу стандартнеы библиотеки
 #include <string.h>
 #include <locale.h>
-#define N 256                   // Вводим директив
+#define N 256                    // Вводим директив
 
 int Slovo(char *ps)
 {
@@ -16,7 +16,7 @@ int main ( void )
 {
  setlocale(LC_ALL,"RU");
 char a[N]="asdw,  gsdfsd asdwed grsd ss";
-    int i, minc;
+    int i, minc;                                                  
     char *n, *t, *min;
     t = a;
     i = 0; minc = 30;
