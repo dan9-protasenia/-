@@ -2,7 +2,7 @@
 #include <string.h>
 #include <locale.h>
 #define N 256
-//------------------------
+
 int Slovo(char *ps)
 {
   char d[]=" .,;:!?\n\r\t";
@@ -11,7 +11,7 @@ int Slovo(char *ps)
   if(*ps == *pd)return 0;
   return 1;
 }
-//------------------------
+
 int main ( void )
 {
  setlocale(LC_ALL,"RU");
