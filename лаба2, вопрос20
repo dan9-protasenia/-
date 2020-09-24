@@ -1,32 +1,36 @@
-#include <stdio.h>   // Ввожу библиотеки 
-#include <string.h> 
-#include <stdlib.h> 
-#include <locale.h> 
-int main()
+#include <stdio.h>
+#include <string.h>
+#include <locale.h>
+#define N 256
+//------------------------
+int Slovo(char *ps)
 {
-	setlocale(LC_ALL, "russian"); //  Добавляю русификатор 
-	char s[] = "asdw  gsdfsd asdwed grsd ss  ";   // Строка в которой ищется самое короткое слово
-	int i, min = 0, j, k; // Вводятся переменные 
-	for (i = 0, k = 1; i < strlen(s); i++) {  //  Начало операции 
-		if (s[i] != ' ' && s[i - 1] == ' ') {
-
-			j = i;
-			
-		}
-		if (s[i] != ' ' && s[i - 1] != ' ') {
-
-			k++;
-			if (k < min) {
-
-				min = k;
-			}
-			if (s[i] == ' ') {
-
-
-				k = 0;
-			}
-			i++;
-		}
-	}
-	printf("%d", min);  // Выводим мин слвов
+  char d[]=" .,;:!?\n\r\t";
+  char *pd;
+  for( pd = d; *pd; pd++)
+  if(*ps == *pd)return 0;
+  return 1;
+}
+//------------------------
+int main ( void )
+{
+ setlocale(LC_ALL,"RU");
+char a[N]="asdw,  gsdfsd asdwed grsd ss";
+    int i, minc;
+    char *n, *t, *min;
+    t = a;
+    i = 0; minc = 30;
+  while(*t)
+  {
+    i = 0;
+    if(Slovo(t) && *t)
+    { 
+      n = t;
+      while(Slovo(t) && *t){i++; t++;}
+      if(minc > i){minc = i; min = n;}
+    } else t++;
+  }
+    for (i = 1; i <= minc; i++)printf("%c", *min++);
+    puts("");
+    return 0;
 }
